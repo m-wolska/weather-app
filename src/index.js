@@ -29,6 +29,11 @@ function updateTimeAndDate() {
 }
 // Immediately update time and date.
 updateTimeAndDate();
+// Add EventListeners to the buttons to trigerr action on click.
+let searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("click", updateCity);
+let currentButton = document.querySelector("#current-button");
+currentButton.addEventListener("click", showCurrentLocation);
 
 // Update the city based on the search bar input and update the temperature for this city accordingly
 // using API call.
@@ -71,9 +76,5 @@ function showTemperature(response) {
     response.data.main.temp_min
   );
 }
-// Add EventListeners to the buttons to trigerr action on click.
-let searchButton = document.querySelector("#search-button");
-searchButton.addEventListener("click", updateCity);
-let currentButton = document.querySelector("#current-button");
-currentButton.addEventListener("click", showCurrentLocation);
+
 searchCity(defaultCity);
