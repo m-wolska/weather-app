@@ -1,0 +1,53 @@
+.cities {
+  padding: auto;
+  text-align: center;
+  width: auto;
+  font-size: 14px;
+  font-family: "Nunito Sans", sans-serif;
+}
+.form-control {
+  width: 580px;
+  margin: 20px 25px;
+}
+.btn {
+  width: 100px;
+  margin: 20px 5px;
+  font-family: "Raleway", sans-serif;
+}
+.box {
+  background-color: rgb(215, 215, 215);
+  text-align: left;
+  padding: 15px 15px;
+  height: 200px;
+  width: 95%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.forecast {
+  margin: 25px;
+  text-align: center;
+  position: inherit;
+  width: auto;
+  font-family: "Nunito Sans", sans-serif;
+}
+.container {
+  border: 1px solid #dadde1;
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 800px;
+  max-height: 600px;
+}
+.currently {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 19px;
+}
+.city {
+  font-family: "Raleway", sans-serif;
+}
+
+#current-button {
+  background-color: green;
+  border-color: green;
+}
