@@ -69,6 +69,7 @@ function showTemperature(response) {
   );
   document.querySelector("#city-name").innerHTML = response.data.name;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = response.data.main.wind_speed;
   document.querySelector("#high").innerHTML = Math.round(
     response.data.main.temp_max
   );
