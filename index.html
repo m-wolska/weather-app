@@ -82,12 +82,14 @@
             />
           </div>
           <div class="col-md-6 my-auto">
-            <h2>
-              <span id="tempNow">17</span>
-              <span id="celsius">°C</span>
-              |
-              <span id="fahrenheit">°F</span>
-            </h2>
+            <div class="weather-temp">
+              <h2 id="tempNow">17</h2>
+              <h4 id="units">
+                <a href="#" id="celsius" class="active">°C</a>
+                |
+                <a href="#" id="fahrenheit" class="active">°F</a>
+              </h4>
+            </div>
             <h3><span id="description">Weather description</span></h3>
             <li id="weather-desc">
               <span>Humidity:</span> <span id="humidity">42</span>%

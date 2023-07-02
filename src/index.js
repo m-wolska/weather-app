@@ -44,11 +44,6 @@ function formatTime(unit) {
   return unit;
 }
 
-// Immediately update time and date.
-// let defaultCity = "London";
-// let defaultApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=metric`;
-// axios.get(defaultApiUrl).then(updateAppData);
-
 // Add EventListeners to the buttons to trigger action on click.
 let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", updateCity);
@@ -72,14 +67,14 @@ function searchCity(city) {
 // Function to be used in combination with Weather API response.
 // Update relevant weather metrics based on the trigger.
 function showTemperature(response) {
-  let tempNow = Math.round(response.data.main.temp);
+  mainCelsiusTemp = Math.round(response.data.main.temp);
   let cityName = response.data.name;
   let humidityValue = response.data.main.humidity;
   let windSpeed = Math.round(response.data.wind.speed * 3.6);
   let description = response.data.weather[0].description;
   let weatherIcon = document.querySelector("#weather-icon");
 
-  document.querySelector("#tempNow").innerHTML = tempNow;
+  document.querySelector("#tempNow").innerHTML = mainCelsiusTemp;
   document.querySelector("#city-name").innerHTML = cityName;
   document.querySelector("#humidity").innerHTML = humidityValue;
   document.querySelector("#wind").innerHTML = windSpeed;
@@ -105,20 +100,22 @@ function getPosition(position) {
   axios.get(apiURL).then(showTemperature);
 }
 
-// function showFahrenheitTemperature(event) {
-//   event.preventDefault();
-//   let temperatureElement = document.querySelector("#tempNow");
-//   let fahrenheitTemperature = Math.round((temperatureElement * 9) / 5 + 32);
-//   temperatureElement.innerHTML = fahrenheitTemperature;
-// }
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = Math.round((mainCelsiusTemp * 9) / 5 + 32);
+  document.querySelector("#tempNow").innerHTML = fahrenheitTemperature;
+}
 
-// function showCelsiusTemperature(event) {
-//   event.preventDefault();
-//   let temperatureElement = document.querySelector("#tempNow");
-//   temperatureElement.innerHTML = Math.round(celsiusTemp);
-// }
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  let celsTemp = document.querySelector("#tempNow");
+  celsTemp.innerHTML = mainCelsiusTemp;
+}
 
-// let fahrenheitLink = document.querySelector("#fahrenheit");
-// form.addEventListener("click", showFahrenheitTemperature);
+let mainCelsiusTemp = null;
+let fahrenheitShowTemp = document.querySelector("#fahrenheit");
+fahrenheitShowTemp.addEventListener("click", showFahrenheitTemperature);
+let celsiusShowTemp = document.querySelector("#celsius");
+celsiusShowTemp.addEventListener("click", showCelsiusTemperature);
 
 searchCity("London");

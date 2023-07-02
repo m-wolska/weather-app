@@ -74,3 +74,12 @@ body {
 #weather-desc {
   list-style: none;
 }
+
+.weather-temp .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+.weather-temp {
+  display: flex;
+}
