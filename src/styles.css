@@ -61,3 +61,13 @@
   font-style: italic;
   text-align: center;
 }
+#search_form {
+  margin-right: 0px;
+}
+.input-group > .form-control {
+  width: 100%;
+}
+
+#weather-desc {
+  list-style: none;
+}
