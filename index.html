@@ -56,7 +56,7 @@
                 placeholder="Search"
                 aria-label="Search"
                 aria-describedby="search-addon"
-                id="search_form"
+                id="search-bar"
               />
             </div>
           </div>
@@ -76,18 +76,24 @@
             <img
               src="images/umbrella.png"
               alt="Umbrella"
-              width="100"
-              height="100"
+              width="120"
+              height="120"
+              id="weather-icon"
             />
           </div>
           <div class="col-md-6 my-auto">
-            <h1><span id="tempNow">17</span>°C</h1>
-            <h2><span>Weather description</span></h2>
+            <h2>
+              <span id="tempNow">17</span>
+              <span id="celsius">°C</span>
+              |
+              <span id="fahrenheit">°F</span>
+            </h2>
+            <h3><span id="description">Weather description</span></h3>
             <li id="weather-desc">
               <span>Humidity:</span> <span id="humidity">42</span>%
             </li>
             <li id="weather-desc">
-              <span>Wind Speed:</span> <span id="Wind">18</span>km/h
+              <span>Wind Speed:</span> <span id="wind">18</span>km/h
             </li>
           </div>
           <div class="col-md-3 my-auto">
@@ -101,7 +107,7 @@
       </div>
       <div class="forecast d-flex-nowrap justify-content-center">
         <div class="row">
-          <div class="col-3 mx-auto">
+          <div class="col mx-auto">
             <img
               src="images/cloud-sun.png"
               alt="Sun with cloud"
