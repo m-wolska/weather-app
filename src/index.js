@@ -102,12 +102,16 @@ function getPosition(position) {
 
 function showFahrenheitTemperature(event) {
   event.preventDefault();
+  fahrenheitShowTemp.classList.add("active");
+  celsiusShowTemp.classList.remove("active");
   let fahrenheitTemperature = Math.round((mainCelsiusTemp * 9) / 5 + 32);
   document.querySelector("#tempNow").innerHTML = fahrenheitTemperature;
 }
 
 function showCelsiusTemperature(event) {
   event.preventDefault();
+  fahrenheitShowTemp.classList.remove("active");
+  celsiusShowTemp.classList.add("active");
   let celsTemp = document.querySelector("#tempNow");
   celsTemp.innerHTML = mainCelsiusTemp;
 }

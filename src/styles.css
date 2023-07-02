@@ -75,11 +75,14 @@ body {
   list-style: none;
 }
 
+#units a {
+  text-decoration: none;
+}
 .weather-temp .active {
   color: black;
   cursor: default;
-  text-decoration: none;
 }
+
 .weather-temp {
   display: flex;
 }
