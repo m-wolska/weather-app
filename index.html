@@ -36,7 +36,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="d-flex-nowrap justify-content-center cities">
+      <div class="d-flex-nowrap cities">
         <div class="row">
           <div class="col mx-auto">Paris</div>
           <div class="col mx-auto">London</div>
@@ -47,23 +47,25 @@
       </div>
 
       <div class="d-flex justify-content-center text-center">
-        <div class="col-md-8 mx-auto">
-          <div class="form-outline w-100">
-            <input
-              type="search"
-              placeholder="Type a city"
-              class="form-control"
-              id="search-bar"
-            />
+        <div class="row">
+          <div class="col-md-8">
+            <div class="form-outline w-50">
+              <input
+                type="search"
+                placeholder="Type a city"
+                class="form-control"
+                id="search-bar"
+              />
+            </div>
           </div>
-        </div>
-        <div class="col-md-4 mx-auto">
-          <button type="button" class="btn btn-primary" id="search-button">
-            <span>Search</span>
-          </button>
-          <button type="button" class="btn btn-primary" id="current-button">
-            <span>Current</span>
-          </button>
+          <div class="col-md-4">
+            <button type="button" class="btn btn-primary" id="search-button">
+              <span>Search</span>
+            </button>
+            <button type="button" class="btn btn-primary" id="current-button">
+              <span>Current</span>
+            </button>
+          </div>
         </div>
       </div>
       <div class="box d-flex-nowrap align-middle">

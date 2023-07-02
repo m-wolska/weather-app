@@ -4,6 +4,7 @@
   width: auto;
   font-size: 14px;
   font-family: "Nunito Sans", sans-serif;
+  justify-content: center;
 }
 .form-control {
   width: 580px;
