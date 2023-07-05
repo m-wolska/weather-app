@@ -49,6 +49,14 @@ let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", updateCity);
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", showCurrentLocation);
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("search-bar");
+  search(cityInputElement.value);
+}
 
 // Update the city based on the search bar input and update the temperature for this city accordingly
 // using API call.
@@ -100,6 +108,7 @@ function getPosition(position) {
   axios.get(apiURL).then(showTemperature);
 }
 
+// Fahrenheit and Celsius switcher
 function showFahrenheitTemperature(event) {
   event.preventDefault();
   fahrenheitShowTemp.classList.add("active");
@@ -121,5 +130,14 @@ let fahrenheitShowTemp = document.querySelector("#fahrenheit");
 fahrenheitShowTemp.addEventListener("click", showFahrenheitTemperature);
 let celsiusShowTemp = document.querySelector("#celsius");
 celsiusShowTemp.addEventListener("click", showCelsiusTemperature);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("search-bar");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
 
 searchCity("London");

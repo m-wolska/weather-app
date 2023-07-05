@@ -47,28 +47,30 @@
       </div>
 
       <div class="d-flex-nowrap">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="input-group mb-0">
-              <input
-                type="search"
-                class="form-control"
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="search-addon"
-                id="search-bar"
-              />
+        <form id="search-form" class="mb-1">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="input-group mb-0">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="search-addon"
+                  id="search-bar"
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-primary" id="search-button">
+                Search
+              </button>
+              <button type="submit" class="btn btn-primary" id="current-button">
+                Current
+              </button>
             </div>
           </div>
-          <div class="col-md-4">
-            <button type="button" class="btn btn-primary" id="search-button">
-              Search
-            </button>
-            <button type="button" class="btn btn-primary" id="current-button">
-              Current
-            </button>
-          </div>
-        </div>
+        </form>
       </div>
       <div class="box d-flex-nowrap">
         <div class="row justify-content-center">
@@ -81,7 +83,7 @@
               id="weather-icon"
             />
           </div>
-          <div class="col-md-6 my-auto">
+          <div class="col-md-5 my-auto">
             <div class="weather-temp">
               <h2 id="tempNow">17</h2>
               <h4 id="units">
@@ -90,7 +92,7 @@
                 <a href="#" id="fahrenheit">°F</a>
               </h4>
             </div>
-            <h3><span id="description">Weather description</span></h3>
+            <h5><span id="description">Weather description</span></h5>
             <li id="weather-desc">
               <span>Humidity:</span> <span id="humidity">42</span>%
             </li>
@@ -98,11 +100,11 @@
               <span>Wind Speed:</span> <span id="wind">18</span>km/h
             </li>
           </div>
-          <div class="col-md-3 my-auto">
+          <div class="col-md-4 my-auto">
             <div class="city">
-              <h1 id="city-name">Paris</h1>
-              <h4 id="day">Sunday</h4>
-              <h4 id="time">4pm</h4>
+              <h2 id="city-name">Paris</h2>
+              <h5 id="day">Sunday</h5>
+              <h5 id="time">4pm</h5>
             </div>
           </div>
         </div>
