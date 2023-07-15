@@ -1,5 +1,5 @@
 function formatTimeAndDate(timeStamp) {
-  // Declare some resuable objects
+  // Declare some reusable objects
   let days = [
     "Sunday",
     "Monday",
@@ -44,6 +44,21 @@ function formatTime(unit) {
   return unit;
 }
 
+function getDayShort(timeStamp) {
+  let fullDate = new Date(timeStamp * 1000);
+  let day = formatTime(fullDate.getDate());
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let dayOfTheWeek = days[fullDate.getDay()];
+  return dayOfTheWeek;
+}
 // Add EventListeners to the buttons to trigger action on click.
 let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", updateCity);
@@ -72,9 +87,49 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
+// Get latitude and longitude to then show forecast
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let longitude = coordinates.lon;
+  let latitute = coordinates.lat;
+  let apiKey = "7746bdeabca928cfedcad71e52fd9d66";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitute}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(getIcons);
+}
+
+// Get icons for forecast
+
+function getIcons(response) {
+  let forecastStart = document.querySelector("#forecast");
+  let dailyForecast = response.data.daily;
+  let forecastHTML = `<div class="row">`;
+  dailyForecast.forEach(function (day, index) {
+    if ((index >= 1) & (index < 6)) {
+      forecastHTML =
+        forecastHTML +
+        `  <div class="col-2">
+            <img class="fc-icon"
+              src="http://openweathermap.org/img/wn/${
+                day.weather[0].icon
+              }@2x.png"
+              alt=""
+            /><div class="weather-details">
+            <span class="fc-day">${getDayShort(day.dt)}</span>
+            <span class="fc-max-temp">${Math.round(day.temp.max)}°C</span>
+            <span class="fc-min-temp">${Math.round(day.temp.min)}°C</span> 
+          </div></div>
+      </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastStart.innerHTML = forecastHTML;
+}
+
 // Function to be used in combination with Weather API response.
 // Update relevant weather metrics based on the trigger.
 function showTemperature(response) {
+  getForecast(response.data.coord);
   mainCelsiusTemp = Math.round(response.data.main.temp);
   let cityName = response.data.name;
   let humidityValue = response.data.main.humidity;

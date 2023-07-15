@@ -86,3 +86,14 @@ body {
 .weather-temp {
   display: flex;
 }
+.fc-min-temp {
+  opacity: 0.5;
+}
+.fc-day {
+  font-size: 18px;
+  display: inline;
+}
+.fc-icon {
+  width: 60px;
+  height: 60px;
+}
