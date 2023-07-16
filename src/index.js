@@ -138,13 +138,14 @@ function showTemperature(response) {
   let humidityValue = response.data.main.humidity;
   let windSpeed = Math.round(response.data.wind.speed * 3.6);
   let description = response.data.weather[0].description;
+  let firstLetter = description.charAt(0).toUpperCase() + description.slice(1);
   let weatherIcon = document.querySelector("#weather-icon");
 
   document.querySelector("#tempNow").innerHTML = mainCelsiusTemp;
   document.querySelector("#city-name").innerHTML = cityName;
   document.querySelector("#humidity").innerHTML = humidityValue;
   document.querySelector("#wind").innerHTML = windSpeed;
-  document.querySelector("#description").innerHTML = description;
+  document.querySelector("#description").innerHTML = firstLetter;
   weatherIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -165,29 +166,6 @@ function getPosition(position) {
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiURL).then(showTemperature);
 }
-
-// Fahrenheit and Celsius switcher
-function showFahrenheitTemperature(event) {
-  event.preventDefault();
-  fahrenheitShowTemp.classList.add("active");
-  celsiusShowTemp.classList.remove("active");
-  let fahrenheitTemperature = Math.round((mainCelsiusTemp * 9) / 5 + 32);
-  document.querySelector("#tempNow").innerHTML = fahrenheitTemperature;
-}
-
-function showCelsiusTemperature(event) {
-  event.preventDefault();
-  fahrenheitShowTemp.classList.remove("active");
-  celsiusShowTemp.classList.add("active");
-  let celsTemp = document.querySelector("#tempNow");
-  celsTemp.innerHTML = mainCelsiusTemp;
-}
-
-let mainCelsiusTemp = null;
-let fahrenheitShowTemp = document.querySelector("#fahrenheit");
-fahrenheitShowTemp.addEventListener("click", showFahrenheitTemperature);
-let celsiusShowTemp = document.querySelector("#celsius");
-celsiusShowTemp.addEventListener("click", showCelsiusTemperature);
 
 function handleSubmit(event) {
   event.preventDefault();
