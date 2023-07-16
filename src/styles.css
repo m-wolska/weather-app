@@ -86,14 +86,23 @@ body {
 .weather-temp {
   display: flex;
 }
+.fc-max-temp {
+  font-size: 16px;
+}
 .fc-min-temp {
   opacity: 0.5;
+  font-size: 16px;
 }
 .fc-day {
   font-size: 18px;
-  display: inline;
 }
 .fc-icon {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+}
+
+#forecast {
+  display: block;
+  width: auto;
+  margin-left: 30px;
 }

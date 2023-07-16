@@ -105,20 +105,23 @@ function getIcons(response) {
   let dailyForecast = response.data.daily;
   let forecastHTML = `<div class="row">`;
   dailyForecast.forEach(function (day, index) {
-    if ((index >= 1) & (index < 6)) {
+    if (index > 0 && index < 7) {
       forecastHTML =
         forecastHTML +
-        `  <div class="col-2">
+        `  <div class="col-2 mx-auto">
             <img class="fc-icon"
               src="http://openweathermap.org/img/wn/${
                 day.weather[0].icon
               }@2x.png"
               alt=""
-            /><div class="weather-details">
-            <span class="fc-day">${getDayShort(day.dt)}</span>
-            <span class="fc-max-temp">${Math.round(day.temp.max)}°C</span>
-            <span class="fc-min-temp">${Math.round(day.temp.min)}°C</span> 
-          </div></div>
+            />
+            <div class="weather-details">
+              <span class="fc-day">${getDayShort(day.dt)}</span>
+              <p>
+              <span class="fc-max-temp">${Math.round(day.temp.max)}°C</span>
+              <span class="fc-min-temp">${Math.round(day.temp.min)}°C</span> 
+              </p>
+          </div>
       </div>`;
     }
   });
